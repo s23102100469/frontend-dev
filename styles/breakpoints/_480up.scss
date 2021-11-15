@@ -1,0 +1,54 @@
+.main {
+
+    &__img {
+
+        & h2 {
+            font-size: 50px;
+        }
+
+        & p {
+            font-size: 18px;
+        }
+    }
+
+    &__middle {
+        margin-top: 40px;
+
+        & h3 {
+            font-size: 35px;
+            margin: 0 0 40px 0;
+
+            &:nth-of-type(2),
+            &:nth-of-type(3){
+                margin-top: 40px;
+            }
+        }
+
+        & .content {
+    
+            & img {
+                height: 280px;
+            }
+
+            & .text {
+
+                & h4 {
+                    font-size: 30px;
+                }
+
+                & p {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    &__build {
+        height: 230px;
+
+        & h3 {
+            font-size: 40px;
+        }
+    }
+
+}

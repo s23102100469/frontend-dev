@@ -1,0 +1,381 @@
+$cBlack: black;
+$cWhite: white;
+$cBlue: #13aff0;
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    position: fixed;
+    background-color: $cWhite;
+    width: 100%;
+    z-index: 1;
+
+    &__wrapper {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__h1 {
+        font-family: 'Righteous', cursive;
+        margin: 0;
+    }
+
+    &__droplist {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        height: 100vh;
+        padding: 0;
+        width: 75%;
+        background-color: $cWhite;
+        overflow: scroll;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: all 0.7s;
+
+        & h2 {
+            padding: 15px 0 15px 20px;
+            margin: 0;
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        & .drop {
+            & > a {
+                display: flex;
+                justify-content: space-between;
+
+                &::after {
+                    content: '>';
+                    transform: rotate(90deg);
+                }
+
+                &.achive::after {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+
+        & .list {
+
+            & > a:hover {
+                color: $cBlue;
+            }
+
+            & > ul {
+                padding: 0;
+                display: none;
+            }
+
+            & ul.achive {
+                display: block;
+
+                & a {
+                    background-color: rgba(0,0,0,0.02);
+
+                    &::before{
+                        content: '>';
+                        margin: 0 10px;
+                    }
+                }
+
+                & a:hover {
+                    color: $cBlue;
+                }
+            }
+        }
+
+        & li {
+            list-style: none;
+            cursor: pointer;
+
+            & a {
+                text-decoration: none;
+                color: $cBlack;
+                display: block;
+                padding: 20px 20px 20px 20px;
+                font-weight: 600;
+                border-bottom: 1px solid rgba(54, 48, 48, 0.08);
+
+                &:nth-child(1){
+                    border-top: 1px solid rgba(54, 48, 48, 0.08);
+                }
+            }
+        }
+    }
+
+    &__btn {
+        display: inline-block;
+        height: 35px;
+        width: 35px;
+
+        & span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $cBlack;
+            margin-top: 9px;
+            transition: all 0.7s;
+        }
+    }
+
+}
+
+.open {
+
+    & .header__btn {
+        position: relative;
+        z-index: 20;
+
+        & span {
+            &:nth-child(1){
+                transform: translateY(11px) rotate(315deg);
+            }
+
+            &:nth-child(2){
+                opacity: 0;
+            }
+
+            &:nth-child(3){
+                transform: translateY(-11px) rotate(-315deg);
+            }
+        }
+    }
+
+    & .header__droplist {
+        transform: translateX(0%);
+        opacity: 1;
+        z-index: 20;
+    }
+
+    & .header__mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100vh;
+        z-index: 15;
+    }
+}
+
+.main {
+    width: 100%;
+    z-index: -1;
+    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.02);
+
+
+    &__img {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        height: 1;
+        background-image: url(/img/名称未設定-6-1.jpg);
+        background-size: cover;
+        background-position: 80% 0%;
+
+        & h2 {
+            font-family: 'Architects Daughter', cursive;
+            margin: 0;
+            position: absolute;
+            font-size: 40px;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: $cWhite;
+        }
+
+        & p {
+            margin: 0;
+            font-size: 15px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: $cWhite;
+            opacity: 0.8;
+            width: 100%;
+        }
+    }
+
+    &__middle {
+        width: 100%;
+        margin-top: 30px;
+
+        & h3 {
+            font-size: 30px;
+            font-family: 'Righteous', cursive;
+            margin: 0 0 30px 0;
+            text-align: center;
+
+            &:nth-of-type(2),
+            &:nth-of-type(3){
+                margin-top: 30px;
+            }
+        }
+
+        & .content {
+            width: 100%;
+            max-width: 1300px;
+    
+            & img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            & .text {
+                width: 80%;
+                margin: 0 auto;
+
+                & h4 {
+                    margin: 20px 0;
+                    font-size: 25px;
+                    font-weight: 700;
+                }
+
+                & p {
+                    font-size: 15px;
+                    opacity: 0.8;
+                }
+
+                & .button {
+                    width: 60%;
+                    margin: 30px 0 0 0;
+                    & a {
+                        display: block;
+                        padding: 10px 0;
+                        text-decoration: none;
+                        color: $cWhite;
+                        background-color: $cBlack;
+                        font-weight: 500;
+                        text-align: center;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    &__start {
+        width: 80%;
+        margin: 50px auto 0 auto;
+
+        & h3 {
+            font-size: 35px;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        & p {
+            font-size: 15px;
+            font-weight: 550;
+            opacity: 0.8;
+            margin: 15px 0 0 0;
+        }
+    }
+
+    &__build {
+        width: 100%;
+        height: 180px;
+        margin-top: 50px;
+        background-image: url(/img/img4.jpg);
+        background-position: 50% 60%;
+        background-size: contain;
+        position: relative;
+
+        & h3 {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            color: $cWhite;
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            top: 60%;
+            left: 50%;
+            transform: translateY(-40%) translateX(-50%);
+            opacity: 0;
+            transition: all 0.7s;
+
+            &.entry {
+                opacity: 1;
+                top: 15%;
+                transform: translateY(-70%) translateX(-50%);
+            }
+        }
+    }
+
+    & .writer {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+
+        & p {
+            color: $cWhite;
+            margin: 0 0 10px 0;
+            font-size: 15px;
+
+        }
+
+        & a {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            color: $cWhite;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 3px solid $cWhite;
+            background-color: rgba(0, 0, 0, 0.02);
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+}
+
+.footer {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: $cWhite;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+
+    & h1 {
+        font-size: 20px;
+        margin: 0;
+        color: $cBlack;
+        font-family: 'Righteous', cursive;
+    }
+
+    & .my-color {
+        color: $cBlack;
+        font-size: 20px;
+    }
+
+    & .fa-instagram {
+        margin-right: 10px;
+    }
+
+
+}
+
+
+
